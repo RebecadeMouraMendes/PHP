@@ -3,34 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabuada</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <title>PHP</title>
 </head>
 <body>
-    <table class="table">
-        <tbody>
-            <tr>
-                <h3>Tabuada:</h3>
-                <?php
-                    for($i = 0,$x = 0,$t = 0; $x<=100; $i++, $t++){
-                        ?>
-                        <td>
-                            <?php 
-                            if($i > 10 & $t!= 0){
-                                $i = 0;
-                                $x = $x + 1;
-                            ?>  <tr><?php
-                            
-                            }
-                            if($i != 0){
-                            echo $x. "x" . $i. " = ". $x*$i; }?>
-                        <td>
-                        <tr>
-                <?php } ?>
-            </tr>
-        </tbody>
-    </table>
+    <?php
+    if(isset($_GET['operacao'])){
+        $x = $_GET['x'];
+        $y = $_GET['y'];
+        $result;
+        if($_GET['operacao'] == "adicao"){
+            $result =  $x +  $y;
+            echo ("Adição: ". $x. " + ". $y. " = ". $result);
+        }
+        if($_GET['operacao'] == "subtracao"){
+            $result = $x - $y;
+            echo ("Subtração: ". $x. " - ". $y. " = ". $result);
+        }
+        if($_GET['operacao'] == "multiplicacao"){
+            $result = $x * $y;
+            echo ("Multiplicação: ". $x. " * ". $y. " = ". $result);
+        }
+        if($_GET['operacao'] == "divisao"){
+            $result = $x / $y;
+            echo ("Divisão: ". $x. " / ". $y. " = ". $result);
+        }
+    }
+    ?>
 </body>
 </html>
